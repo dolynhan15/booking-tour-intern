@@ -14,7 +14,20 @@ class User(AbstractBaseUser, PermissionsMixin):
     admin = models.BooleanField(default=False)  # admin is super admin
     timestamp = models.DateTimeField(auto_now_add=True)
 
+    USERNAME_FIELD = 'email'
     objects = UserManager()
+
+    @property
+    def is_staff(self):
+        return self.staff
+
+    @property
+    def is_active(self):
+        return self.active
+
+    @property
+    def is_admin(self):
+        return self.admin
 
     class Meta:
         db_table = "api_users"
