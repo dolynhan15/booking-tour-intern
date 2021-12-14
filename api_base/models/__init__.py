@@ -1,1 +1,1 @@
-from .base import TimeStampedModel
+from .base import BaseModel
