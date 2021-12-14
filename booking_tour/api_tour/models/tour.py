@@ -17,3 +17,12 @@ class Tour(BaseModel):
 
     class Meta:
         db_table = "api_tours"
+
+    @property
+    def overall_rating(self):
+        from api_tour.models import TourRating
+        ratings = TourRating.objects.all().filter(tour=self.id)
+        if len(ratings) > 0:
+            return sum([x.rating for x in ratings]) / len(ratings)
+        else:
+            return 0
