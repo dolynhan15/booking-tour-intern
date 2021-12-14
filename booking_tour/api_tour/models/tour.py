@@ -2,7 +2,8 @@ from django.db import models
 from api_base.models import BaseModel
 from api_category.models import Category
 from api_place.models import Place
-# Create your models here.
+from api_review.models.review import Review
+
 
 class Tour(BaseModel):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
@@ -13,7 +14,6 @@ class Tour(BaseModel):
     duration_evening = models.IntegerField(default=0, null=True)
     fare = models.IntegerField(default=0, null=True)
     description = models.CharField(max_length=255, null=True)
+
     class Meta:
-        db_table="api_tours"  
-    
-    
+        db_table = "api_tours"
