@@ -1,7 +1,7 @@
 from django.db import models
 from api_base.models import BaseModel
 from api_user.models import UserProfile
-from tour import Tour
+from api_tour.models.tour import Tour
 from django.core.validators import MinValueValidator, MaxValueValidator
 
 

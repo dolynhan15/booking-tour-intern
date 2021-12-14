@@ -45,8 +45,11 @@ THIRD_PARTY_APPS = (
 
 LOCAL_APPS = (
     "api_base",
-    "api_place",
     "api_user",
+    "api_place",
+    "api_tour",
+    "api_review",
+    "api_category"
 )
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS

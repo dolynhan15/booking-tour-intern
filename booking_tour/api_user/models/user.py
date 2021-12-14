@@ -21,9 +21,6 @@ class User(AbstractBaseUser, PermissionsMixin):
     class Meta:
         db_table = "api_users"
 
-    def __str__(self):
-        return str(self.id)
-
     def has_perm(self, perm, obj=None):
         return True
 
@@ -49,4 +46,4 @@ class User(AbstractBaseUser, PermissionsMixin):
     @property
     def user_profile(self):
         # noinspection PyUnresolvedReferences
-        return Profile.objects.filter(id=self.profile.id)
+        return UserProfile.objects.filter(id=self.profile.id)
