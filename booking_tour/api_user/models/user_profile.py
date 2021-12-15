@@ -12,8 +12,8 @@ class UserProfile(BaseModel):
     address = models.CharField(max_length=255, null=True)
     age = models.IntegerField(default=1, null=True)
     phone_number = models.CharField(max_length=10, null=True, )
-    gender = models.CharField(
-        choices=Genders.GENDERS, default=Genders.Select, max_length=100
+    gender = models.IntegerField(
+        choices=Genders.GENDERS, default=Genders.Select
     )
     photo = models.ImageField(
         max_length=255, blank=True, null=True

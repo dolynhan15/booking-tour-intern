@@ -49,7 +49,8 @@ LOCAL_APPS = (
     "api_place",
     "api_tour",
     "api_review",
-    "api_category"
+    "api_category",
+    "api_booking_request"
 )
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS

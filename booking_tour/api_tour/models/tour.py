@@ -2,13 +2,11 @@ from django.db import models
 from api_base.models import BaseModel
 from api_category.models import Category
 from api_place.models import Place
-from api_review.models.review import Review
 
 
 class Tour(BaseModel):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    place = models.ForeignKey(Place, on_delete=models.CASCADE)
-    review = models.ForeignKey(Review, on_delete=models.CASCADE)
+    place = models.ManyToManyField(Place)
     name = models.CharField(max_length=255, null=True)
     duration_morning = models.IntegerField(default=0, null=True)
     duration_evening = models.IntegerField(default=0, null=True)
