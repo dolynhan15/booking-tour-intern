@@ -5,7 +5,7 @@ from rest_framework import status, viewsets, permissions
 from rest_framework.response import Response
 from rest_framework.generics import GenericAPIView
 from ..models import User, UserProfile
-from ..serializers.user import UserSerializer, LoginSerializer
+from ..serializers.user import UserSerializer, LoginSerializer, UserProfileSerializer
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -19,7 +19,7 @@ class UserViewSet(viewsets.ModelViewSet):
 
 class UserProfileViewSet(viewsets.ModelViewSet):
     queryset = UserProfile.objects.all()
-    serializer_class = UserSerializer
+    serializer_class = UserProfileSerializer
     permission_classes = [permissions.IsAuthenticated]
 
 

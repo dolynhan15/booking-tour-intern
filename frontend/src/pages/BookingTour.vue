@@ -12,6 +12,7 @@ import Navbar from "@/layout/Navbar.vue";
 import TourCard from "@/components/BookingTour/TourCard.vue";
 import RequestForm from "@/components/BookingTour/RequestForm.vue";
 import Footer from "@/layout/Footer.vue";
+import UserProfileService from "@/services/UserProfileService/UserProfileService";
 
 export default {
   name: "BookingTour",
@@ -20,6 +21,11 @@ export default {
     TourCard,
     Footer,
     RequestForm,
+  },
+  async created() {
+    this.userProfile = await UserProfileService.getUserProfileById(localStorage.getItem("user_profile_id"))
+    console.log(this.userProfile)
+
   },
   data() {
     return {

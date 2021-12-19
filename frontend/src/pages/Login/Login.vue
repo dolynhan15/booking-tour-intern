@@ -68,6 +68,7 @@ export default {
           localStorage.setItem("user_id", data["user_id"]);
           localStorage.setItem("is_admin", data["is_admin"]);
           localStorage.setItem("is_staff", data["is_staff"]);
+          localStorage.setItem("user_profile_id", data["user_profile_id"])
           if (this.$router.currentRoute.name === "Login") {
             await this.$router.push("/");
             this.$router.go(0);
