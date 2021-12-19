@@ -50,11 +50,13 @@ class LoginSerializer(serializers.ModelSerializer):
 
     def to_representation(self, instance):
         data = super(LoginSerializer, self).to_representation(instance)
-        user = User.objects.get(email=instance['username'])
+        user = User.objects.filter(email=instance['username']).first()
+        user_profile = UserProfile.objects.filter(user=user).first()
         data.update(
             user_id=user.id,
             is_staff=user.is_staff,
             is_admin=user.is_admin,
             email=user.email,
+            user_profile_id=user_profile.id if user_profile else None
         )
         return data
