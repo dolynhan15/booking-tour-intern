@@ -92,7 +92,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scope>
 .main {
   margin-top: 60px;
   margin-bottom: 30px;
@@ -224,6 +224,37 @@ export default {
   border-color: #01b3a7;
 }
 
+.product-big-price-wrap {
+  height: 58px;
+  width: 70px;
+  top: -1px;
+  right: -1px;
+  position: absolute;
+  overflow: hidden;
+  text-align: center;
+  z-index: 1;
+  padding: 18px 12px 2px;
+}
+.product-big-price-wrap::before {
+  position: absolute;
+  content: "";
+  bottom: 0;
+  left: 24px;
+  width: 400%;
+  height: 100%;
+  background: #01b3a7;
+  transform: skew(45deg);
+  transform-origin: 50% 100%;
+  will-change: transform;
+  pointer-events: none;
+  z-index: -1;
+}
+.product-big-price {
+  font-weight: 600;
+  font-size: 21px;
+  letter-spacing: 0.025em;
+  color: #ffffff;
+}
 ul, ol {
     list-style: disc;
     padding: 0;
