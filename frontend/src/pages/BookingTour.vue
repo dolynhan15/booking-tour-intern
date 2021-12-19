@@ -2,7 +2,7 @@
   <div class="booking-tour">
     <Navbar/>
     <TourCard/>
-    <RequestForm/>
+    <RequestForm v-bind:userProfile="userProfile"/>
     <Footer/>
   </div>
 </template>

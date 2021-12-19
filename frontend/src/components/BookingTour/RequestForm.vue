@@ -64,13 +64,14 @@
 import { required, minLength, between } from 'vuelidate/lib/validators'
 export default {
   name: "RequestForm",
+  props: ['userProfile'],
   data() {
     return {
       ruleForm: {
-        name: "",
-        address: "",
-        email: "",
-        phone: "",
+        name: this.userProfile.name,
+        address: this.userProfile.address,
+        email: localStorage.getItem("email"),
+        phone: this.userProfile.phone,
         numPerson: 1,
         discount: 0,
       },
