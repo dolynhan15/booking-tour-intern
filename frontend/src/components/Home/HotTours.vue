@@ -27,7 +27,7 @@
             holidays. Situated in sunny Costa Blanca, the town is one of the
             original Spanish beach resorts...
           </p>
-          <a class="btn btn-booking-tour" href="#">Buy This Tour</a>
+          <a class="btn btn-booking-tour" href="#">Book This Tour</a>
           <div class="product-big-price-wrap">
             <span class="product-big-price">$790</span>
           </div>
