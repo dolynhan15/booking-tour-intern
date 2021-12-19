@@ -62,10 +62,10 @@ export default {
     login: async function () {
       if (await this.validation() === true) {
         const data = await LoginService.login(this.loginFormData)
-        if (data) {
+        if (data["access_token"]) {
           localStorage.setItem("access_token", data["access_token"])
           localStorage.setItem("email", data["email"]);
-          localStorage.setItem("user_id", data["id"]);
+          localStorage.setItem("user_id", data["user_id"]);
           localStorage.setItem("is_admin", data["is_admin"]);
           localStorage.setItem("is_staff", data["is_staff"]);
           if (this.$router.currentRoute.name === "Login") {

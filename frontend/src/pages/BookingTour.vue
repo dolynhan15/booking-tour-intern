@@ -2,7 +2,7 @@
   <div class="booking-tour">
     <Navbar/>
     <TourCard/>
-    <RequestForm />
+    <RequestForm/>
     <Footer/>
   </div>
 </template>
@@ -20,6 +20,11 @@ export default {
     TourCard,
     Footer,
     RequestForm,
+  },
+  data() {
+    return {
+      userProfile: {},
+    }
   }
 };
 </script>
