@@ -40,3 +40,14 @@ class LoginSerializer(serializers.ModelSerializer):
         elif len(password) < 8:
             raise serializers.ValidationError({'password', 'Password must be at least 8 characters'})
         return super().validate(attrs)
+
+    def to_representation(self, instance):
+        data = super(LoginSerializer, self).to_representation(instance)
+        user = User.objects.get(email=instance['username'])
+        data.update(
+            user_id=user.id,
+            is_staff=user.is_staff,
+            is_admin=user.is_admin,
+            email=user.email,
+        )
+        return data

@@ -44,5 +44,7 @@ class LoginAPIView(GenericAPIView):
                     'client_secret': os.environ.get('CLIENT_SECRET'),
                 },
             )
-            return Response(r.json(), status=status.HTTP_200_OK)
+            response = r.json()
+            response.update(serializer.data)
+            return Response(response, status=status.HTTP_200_OK)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
