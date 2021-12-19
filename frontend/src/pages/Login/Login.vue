@@ -64,35 +64,20 @@ export default {
         const data = await LoginService.login(this.loginFormData)
         if (data) {
           localStorage.setItem("access_token", data["access_token"])
-        //   const user = await GetUserService.getCurrentUser(token.sub)
-        //   if (user) {
-        //     const {id, email, profile, admin} = user.data;
-        //
-        //     const userData = {
-        //       user: id,
-        //       email: email,
-        //       name: profile.name,
-        //       profile_id: profile.id,
-        //       is_admin: admin
-        //     }
-        //     localStorage.setItem("email", email);
-        //     localStorage.setItem("user_id", id);
-        //     localStorage.setItem("profile_id", profile.id);
-        //     localStorage.setItem("is_admin", admin);
-        //     localStorage.setItem("imageUrl", profile.image);
-        //     localStorage.setItem("name", profile.name);
-        //     if (this.$router.currentRoute.name === "Login") {
-        //       await this.$router.push("/");
-        //       this.$router.go(0);
-        //     }
-        //   } else {
-        //     this.error = "Wrong Password or Email";
-        //     this.loginFormData.email = "";
-        //     this.loginFormData.password = "";
-        //   }
-        // } else
-        //   this.error = 'Invalid Password'
-      }}
+          localStorage.setItem("email", data["email"]);
+          localStorage.setItem("user_id", data["id"]);
+          localStorage.setItem("is_admin", data["is_admin"]);
+          localStorage.setItem("is_staff", data["is_staff"]);
+          if (this.$router.currentRoute.name === "Login") {
+            await this.$router.push("/");
+            this.$router.go(0);
+          }
+        } else {
+          this.error = "Wrong Password or Email";
+          this.loginFormData.email = "";
+          this.loginFormData.password = "";
+        }
+      }
     },
     validation: async function () {
       this.error = "";
