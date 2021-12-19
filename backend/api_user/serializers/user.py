@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from rest_framework.exceptions import AuthenticationFailed
-from ..models import User
+from ..models import User, UserProfile
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -22,6 +22,13 @@ class UserSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         return User.objects.create_user(**validated_data)
+
+
+class UserProfileSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = UserProfile
+        fields = '__all__'
 
 
 class LoginSerializer(serializers.ModelSerializer):
